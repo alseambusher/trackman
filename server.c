@@ -23,9 +23,12 @@ void main(int argc,char** argv){
     char buffer[100];
     strcpy(buffer,"");
     int n=read(newsockfd,buffer,100);
-    printf("%s",buffer);
-    strcpy(buffer,"sent message");
-    n=write(newsockfd,buffer,1000);
+    int i,j;
+    for(i=0;i<strlen(buffer);i++)
+        if(buffer[i]==',')
+            break;
+    for(j=i+1;j<strlen(buffer);j++)
+        printf("%c",buffer[j]);
     close(sockfd);
     close(newsockfd);
 }

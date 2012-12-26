@@ -17,8 +17,8 @@ do
     if [ "$old_window" != "$window" ]
     then
         echo $window > $WINID
-        echo `date`
-        echo $window_id' '$application': '$window
+        echo `date` >> $DUMP_FILE
+        echo $window_id' '$application': '$window >> $DUMP_FILE
     fi
     sleep 5
 done

@@ -1,0 +1,14 @@
+  #####  #####     ##     ####   #    #  #    #    ##    #    #
+    #    #    #   #  #   #    #  #   #   ##  ##   #  #   ##   #
+    #    #    #  #    #  #       ####    # ## #  #    #  # #  #
+    #    #####   ######  #       #  #    #    #  ######  #  # #
+    #    #   #   #    #  #    #  #   #   #    #  #    #  #   ##
+    #    #    #  #    #   ####   #    #  #    #  #    #  #    #
+
+#!/bin/bash
+mkdir $HOME'/.trackman/'
+touch $HOME'/.trackman/dump'
+echo 'default' > $HOME'/.trackman/winid'
+echo "DUMP_FILE='$HOME/.trackman/dump'" >>trackman.conf
+echo "WINID='$HOME/.trackman/winid'" >>trackman.conf
+make

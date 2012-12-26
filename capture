@@ -7,14 +7,16 @@
 
 #!/bin/bash
 source trackman.conf
+rm $WINID 2>/dev/null
 while [ 0 ]
 do
     window_id=`xprop -root | grep '_NET_ACTIVE_WINDOW(WINDOW)'| cut -d '#' -f 2`
     window=`xprop -id $window_id| grep 'WM_NAME(STRING)'| cut -d '"' -f 2`
-    old_id=`cat $WINID`
-    if [ "$old_id" != "$window_id" ]
+    old_window=`cat $WINID 2>/dev/null`
+    if [ "$old_window" != "$window" ]
     then
-        echo $window_id > $WINID
+        echo $window > $WINID
+        echo `date`
         echo $old_id' '$window_id' '$window
     fi
     sleep 5

@@ -29,6 +29,7 @@ void main(int argc,char** argv){
             break;
     for(j=i+1;j<strlen(buffer);j++)
         printf("%c",buffer[j]);
+    printf("\n");
     close(sockfd);
     close(newsockfd);
 }

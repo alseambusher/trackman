@@ -1,0 +1,17 @@
+#!/bin/bash
+  #####  #####     ##     ####   #    #  #    #    ##    #    #
+    #    #    #   #  #   #    #  #   #   ##  ##   #  #   ##   #
+    #    #    #  #    #  #       ####    # ## #  #    #  # #  #
+    #    #####   ######  #       #  #    #    #  ######  #  # #
+    #    #   #   #    #  #    #  #   #   #    #  #    #  #   ##
+    #    #    #  #    #   ####   #    #  #    #  #    #  #    #
+if [ $# -eq 0 ]
+then
+    #TODO show help here
+    exit 1
+fi
+echo "starting trackman-client"
+while [ 0 ]
+do
+    ./server $*
+done

@@ -1,0 +1,4 @@
+#!/bin/bash
+killall capture
+killall trackman-server
+killall trackman-client

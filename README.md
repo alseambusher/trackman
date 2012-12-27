@@ -5,7 +5,7 @@ Please note that trackman has/will be made for constructive purposes like fighti
 <pre>./configure</pre>
 ##Trackman server
 To start give
-<pre>./trackman-server \<port-no\> </pre>
+<pre>./trackman-server {port-no} </pre>
 For example
 <pre>./trackman-server 1090 </pre>
 Here is the sample output
@@ -20,10 +20,10 @@ starting trackman-server...
 </pre>
 ##Trackman client
 To start give
-<pre>./trackman-client \<host\> \<port-no\> [option]</pre>
+<pre>./trackman-client {host} {port-no} [option]</pre>
 For example
 <pre>./trackman-client 10.3.1.250 1090</pre>
 To start in silent mode
-<pre>./trackman-client \<host\> \<port-no\> --silent</pre>
+<pre>./trackman-client {host} {port-no} --silent</pre>
 ##Stop Trackman
 <pre>./kill-trackman </pre>

@@ -17,11 +17,11 @@ fi
 silent=1;
 for i in $*; do if [ "$i" = "--silent" ]; then silent=0; fi; done
 
-if [ ! $silent ]; then echo "starting to capture...."; fi
+if [ $silent -eq 1 ]; then echo "starting to capture...."; fi
 ./capture&
-if [ ! $silent ] && [ $? ]; then
+if [ $silent -eq 1 ] && [ $? -eq 0 ]; then
     echo "starting trackman-client.."
-elif [ ! $silent ]; then
+elif [ $silent -eq 1 ]; then
     echo "ERROR failed to capture.. Try again"
     exit 1
 fi
@@ -29,16 +29,16 @@ fi
 while [ 0 ]
 do
     data=`sed -n '1p' $DUMP_FILE`
-    if [ ! $silent ]; then
-        ./client $1 $2 "$data" 2>/dev/null
-    else
-        ./client $1 $2 "$data" >/dev/null 2>/dev/null
-    fi
-    if [ $? ]; then
-        sed -n '2,$p' $DUMP_FILE > temp_dump
-        cat temp_dump >$DUMP_FILE
-        rm temp_dump
+    if [ "$data" != "" ]; then
+        if [ $silent -eq 1 ]; then
+            ./client $1 $2 "$data" 2>/dev/null
+        else
+            ./client $1 $2 "$data" >/dev/null 2>/dev/null
+        fi
+        if [ $? -eq 0 ]; then
+            sed -n '2,$p' $DUMP_FILE > temp_dump
+            cat temp_dump >$DUMP_FILE
+            rm temp_dump
+        fi
     fi
 done
-#kill capture before exiting
-killall capture

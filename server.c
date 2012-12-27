@@ -24,10 +24,15 @@ void main(int argc,char** argv){
     strcpy(buffer,"");
     int n=read(newsockfd,buffer,100);
     int i,j;
-    for(i=0;i<strlen(buffer);i++)
+    char len_str[5];
+    strcpy(len_str,"");
+    for(i=0;i<strlen(buffer);i++){
         if(buffer[i]==',')
             break;
-    for(j=i+1;j<strlen(buffer);j++)
+        sprintf(len_str,"%s%c",len_str,buffer[i]);
+    }
+    printf("%s",len_str);
+    for(j=i+1;j<atoi(len_str)+i+1;j++)
         printf("%c",buffer[j]);
     printf("\n");
     close(sockfd);

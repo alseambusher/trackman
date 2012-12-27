@@ -4,3 +4,13 @@ Please note that trackman has/will be made for constructive purposes like fighti
 ##TODO
 tracking part with xprop  
 using server and client
+<p>
+starting trackman-server...
+340x2600006 Gnome-terminal: Terminal
+28Thu Dec 27 22:53:10 IST 2012
+520x2800003 Gvim: server.c (~/alse_cn/trackman) - GVIM
+28Thu Dec 27 22:56:04 IST 2012
+630x240008f Firefox: alseambusher (Suresh Alse) - Mozilla Firefox
+28Thu Dec 27 22:56:14 IST 2012
+340x2600006 Gnome-terminal: Terminal
+</p>

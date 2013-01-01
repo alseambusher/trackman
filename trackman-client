@@ -9,9 +9,18 @@
 
 source trackman.conf
 
-if [ $# -le 1 ]
+if [ $# -eq 0 ]
 then
-    exit 1
+    server_ip='localhost'
+else
+    server_ip=$1
+fi
+
+if [ $# -ge 2 ]
+then
+    port=$2
+else
+    port=1050
 fi
 
 silent=1;
@@ -31,9 +40,9 @@ do
     data=`sed -n '1p' $DUMP_FILE`
     if [ "$data" != "" ]; then
         if [ $silent -eq 1 ]; then
-            ./client $1 $2 "$data" 2>/dev/null
+            ./client $server_ip $port "$data" 2>/dev/null
         else
-            ./client $1 $2 "$data" >/dev/null 2>/dev/null
+            ./client $server_ip $port "$data" >/dev/null 2>/dev/null
         fi
         if [ $? -eq 0 ]; then
             sed -n '2,$p' $DUMP_FILE > temp_dump

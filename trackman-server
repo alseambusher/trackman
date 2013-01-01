@@ -9,11 +9,12 @@
 
 if [ $# -eq 0 ]
 then
-    #TODO show help here
-    exit 1
+    port=1050
+else
+    port=$1
 fi
 echo "starting trackman-server..."
 while [ 0 ]
 do
-    ./server $*
+    ./server $port
 done
